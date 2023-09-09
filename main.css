@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  header {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 1em;
+  }
+  section {
+    padding: 2em;
+  }
+  .top-right-corner {
+    width: 50%;
+    height: 50%;
+    border: 1px solid black;
+  }
+  /* Metric styling */
+  .metric {
+    display: inline-block;
+    width: 20%;
+    margin: 1em;
+    text-align: center;
+  }
+  /* Flexbox container for 7-day forecast */
+  .forecast-container {
+    display: flex;
+    justify-content: space-around;
+  }
+  /* 7-day forecast styling */
+  .daily-forecast {
+    border: 1px solid #ccc;
+    padding: 1em;
+    text-align: center;
+  }
+  /* Font Awesome Icon size */
+  i.fa {
+    font-size: 24px;
+  }
