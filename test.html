@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farming Weather App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script>
+        // Replace YOUR_API_KEY with your actual OpenWeatherMap API Key
+        const apiKey = 'aeb5b65ba6ebf71fafe6299a0e5ae797';
+        const city = 'Abuja'; // You can change this to any city
+
+        // Function to fetch 7-day forecast
+        async function getWeatherData() {
+            const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&cnt=7&appid=${apiKey}`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // Assuming forecast data is ordered by date
+            const forecastContainer = document.querySelector('.forecast-container');
+            forecastContainer.innerHTML = ''; // Clear old data
+
+            data.list.forEach(day => {
+                const dailyForecast = document.createElement('div');
+                dailyForecast.className = 'daily-forecast';
+
+                // Map OpenWeatherMap icon codes to Font Awesome icons
+                const iconMapping = {
+                    '01': 'fa-sun-o', // clear sky
+                    '02': 'fa-cloud', // few clouds
+                    // Add other mappings as needed
+                };
+
+                // Extract weather icon code
+                const weatherIconCode = day.weather[0].icon.slice(0, 2);
+
+                // Create HTML elements and populate them with API data
+                dailyForecast.innerHTML = `
+                    <h3>${new Date(day.dt_txt).toLocaleString('en-US', { weekday: 'long' })}</h3>
+                    <i class="fa ${iconMapping[weatherIconCode] || 'fa-cloud'}"></i>
+                    <p>High: ${Math.round(day.main.temp_max)}°C</p>
+                    <p>Low: ${Math.round(day.main.temp_min)}°C</p>
+                    <p>Rainfall: ${day.rain ? day.rain['3h'] : 0}mm</p>
+                `;
+
+                // Add daily forecast to the forecast container
+                forecastContainer.appendChild(dailyForecast);
+            });
+        }
+
+        // Fetch weather data when the page loads
+        window.onload = getWeatherData;
+    </script>
+    <style>
+        /* Same CSS as before, truncated for brevity */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        section {
+            padding: 2em;
+        }
+        .top-right-corner{
+            width: 50%;
+            height: 50%;
+            border: 1px solid black;
+        }
+        /* Metric styling */
+        .metric {
+            display: inline-block;
+            width: 20%;
+            margin: 1em;
+            text-align: center;
+        }
+        /* Flexbox container for 7-day forecast */
+        .forecast-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        /* 7-day forecast styling */
+        .daily-forecast {
+            border: 1px solid #ccc;
+            padding: 1em;
+            text-align: center;
+        }
+        /* Font Awesome Icon size */
+        i.fa {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Farming Weather Forecast</h1>
+    </header>
+
+    <section id="7-day-forecast">
+        <h2>7-Day Forecast</h2>
+        <div class="forecast-container">
+            <!-- Filled in by JavaScript -->
+        </div>
+    </section>
+</body>
+</html>

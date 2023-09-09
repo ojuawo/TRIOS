@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farming Weather App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        /* General layout */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        section {
+            padding: 2em;
+        }
+        .top-right-corner{
+            width: 50%;
+            height: 50%;
+            border: 1px solid black;
+        }
+        /* Metric styling */
+        .metric {
+            display: inline-block;
+            width: 20%;
+            margin: 1em;
+            text-align: center;
+        }
+        /* Flexbox container for 7-day forecast */
+        .forecast-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        /* 7-day forecast styling */
+        .daily-forecast {
+            border: 1px solid #ccc;
+            padding: 1em;
+            text-align: center;
+        }
+        /* Font Awesome Icon size */
+        i.fa {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Farming Weather Forecast</h1>
+    </header>
+    <div class="top-right-corner">
+        <section id="current-weather">
+            <h2>Today's Forecast</h2>
+            <div id="weather-icons">
+                <i class="fa fa-sun-o"></i>
+            </div>
+            <div class="metric" id="temperature">
+                <p>High: 32°C</p>
+                <p>Low: 21°C</p>
+            </div>
+            <div class="metric" id="rainfall">
+                <p>Rainfall: 5mm</p>
+            </div>
+            <div class="metric" id="other-metrics">
+                <p>Humidity: 50%</p>
+                <p>Wind Speed: 10km/h</p>
+                <p>UV Index: 7</p>
+            </div>
+        </section>
+    
+        <section id="7-day-forecast">
+            <h2>7-Day Forecast</h2>
+            <div class="forecast-container">
+                <!-- Start of 7-day forecast -->
+                <div class="daily-forecast">
+                    <h3>Monday</h3>
+                    <i class="fa fa-cloud"></i>
+                    <p>High: 30°C</p>
+                    <p>Low: 20°C</p>
+                    <p>Rainfall: 2mm</p>
+                </div>
+                <div class="daily-forecast">
+                    <h3>Tuesday</h3>
+                    <i class="fa fa-bolt"></i>
+                    <p>High: 29°C</p>
+                    <p>Low: 18°C</p>
+                    <p>Rainfall: 4mm</p>
+                </div>
+                <div class="daily-forecast">
+                    <h3>Wednesday</h3>
+                    <i class="fa fa-sun-o"></i>
+                    <p>High: 32°C</p>
+                    <p>Low: 22°C</p>
+                    <p>Rainfall: 0mm</p>
+                </div>
+                <div class="daily-forecast">
+                    <h3>Thursday</h3>
+                    <i class="fa fa-cloud"></i>
+                    <p>High: 28°C</p>
+                    <p>Low: 19°C</p>
+                    <p>Rainfall: 3mm</p>
+                </div>
+                <div class="daily-forecast">
+                    <h3>Friday</h3>
+                    <i class="fa fa-tint"></i>
+                    <p>High: 26°C</p>
+                    <p>Low: 17°C</p>
+                    <p>Rainfall: 6mm</p>
+                </div>
+                <div class="daily-forecast">
+                    <h3>Saturday</h3>
+                    <i class="fa fa-sun-o"></i>
+                    <p>High: 31°C</p>
+                    <p>Low: 21°C</p>
+                    <p>Rainfall: 1mm</p>
+                </div>
+                <div class="daily-forecast">
+                    <h3>Sunday</h3>
+                    <i class="fa fa-moon-o"></i>
+                    <p>High: 30°C</p>
+                    <p>Low: 20°C</p>
+                    <p>Rainfall: 2mm</p>
+                </div>
+                <!-- End of 7-day forecast -->
+            </div>
+        </section>
+    </div>
+   
+</body>
+</html>
